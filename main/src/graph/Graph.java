@@ -8,7 +8,10 @@ public class Graph {
     }
 
     public boolean resetVisitedFlags(){
-        for(VertexInterface)
+        for(VertexInterface v : VertexList){
+            v.unvisit();
+        }
+        return true;
     }
 
 }

@@ -14,4 +14,6 @@ public interface VertexInterface<T> {
 
 
     public boolean hasUnvisitedNeighbor();
+
+    public void addNeighbor(VertexInterface neighbor);
 }

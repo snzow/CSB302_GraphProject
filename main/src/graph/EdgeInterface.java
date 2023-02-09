@@ -1,2 +1,4 @@
-package graph;public interface EdgeInterface {
+package graph;
+
+public interface EdgeInterface {
 }

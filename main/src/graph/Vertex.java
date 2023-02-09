@@ -53,4 +53,8 @@ public class Vertex<T> implements VertexInterface{
         return false;
     }
 
+    public void addNeighbor (VertexInterface neighbor){
+        this.neighborList.add(neighbor);
+    }
+
 }
