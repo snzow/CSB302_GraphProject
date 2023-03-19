@@ -1,5 +1,7 @@
 package graph;
 
+import java.util.ArrayList;
+
 public interface VertexInterface<T> {
 
     public T getData();
@@ -15,5 +17,15 @@ public interface VertexInterface<T> {
 
     public boolean hasUnvisitedNeighbor();
 
+    public void printNeighbors();
+
+    public void addNeighborDirected(VertexInterface neighbor);
+
+    public void addNeighborDirected(VertexInterface neighbor,int weight);
+
     public void addNeighbor(VertexInterface neighbor);
+    public ArrayList<VertexInterface> getNeighbors();
+
+    public int getCostTo(VertexInterface neighbor);
+
 }
