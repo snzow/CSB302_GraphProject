@@ -1,29 +1,32 @@
 package graph;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Stack;
+import java.util.*;
 
 public class Vertex<T> implements VertexInterface{
-    T data;
+    int data;
     String label;
     ArrayList<VertexInterface> neighborList;
     Map<VertexInterface,Integer> edgeMap;
+    ArrayList<EdgeInterface> edgeList;
 
 
     boolean visited;
 
-    public Vertex(String label, T data){
+    public Vertex(String label, int data){
         this.data = data;
         this.label = label;
         this.neighborList = new ArrayList<>();
+        this.edgeList = new ArrayList<>();
         this.edgeMap = new HashMap<>();
         this.visited = false;
     }
 
-    public T getData(){
+    public int getData(){
         return data;
+    }
+
+    public void setData(int data){
+        this.data = data;
     }
 
     public void visit(){
@@ -65,7 +68,7 @@ public class Vertex<T> implements VertexInterface{
     }
 
     public void addNeighborDirected (VertexInterface neighbor){
-        EdgeInterface newEdge = new Edge(this,neighbor);
+        EdgeInterface newEdge = new DirectedEdge(this,neighbor);
         edgeMap.put(neighbor,0);
 
     }
@@ -75,9 +78,20 @@ public class Vertex<T> implements VertexInterface{
     }
 
     public void addNeighborDirected (VertexInterface neighbor,int weight){
-        EdgeInterface newEdge = new Edge(this,neighbor,weight);
+        EdgeInterface newEdge = new DirectedEdge(this,neighbor,weight);
         edgeMap.put(neighbor,weight);
+        edgeList.add(newEdge);
 
+    }
+
+    public void addNeighborUndirected(VertexInterface neighbor, int weight){
+        EdgeInterface newEdge = new UndirectedEdge(this, neighbor, weight);
+        edgeMap.put(neighbor, weight);
+        edgeList.add(newEdge);
+    }
+
+    public List<EdgeInterface> getEdgeList(){
+        return edgeList;
     }
 
     public void printNeighbors(){
@@ -109,5 +123,7 @@ public class Vertex<T> implements VertexInterface{
         int cost = edgeMap.get(v);
         return cost;
     }
+
+
 
 }

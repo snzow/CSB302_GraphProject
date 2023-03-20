@@ -11,4 +11,6 @@ public interface GraphInterface {
     public void printGraph();
 
     public ArrayList<VertexInterface> getVertices();
+
+
 }

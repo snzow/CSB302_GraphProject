@@ -29,7 +29,6 @@ public class Graph implements GraphInterface {
         for(VertexInterface v : vertexList){
             System.out.println("");
             v.printNeighbors();
-
         }
     }
 

@@ -1,10 +1,11 @@
 package graph;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface VertexInterface<T> {
 
-    public T getData();
+    public int getData();
 
     public void visit();
 
@@ -28,4 +29,9 @@ public interface VertexInterface<T> {
 
     public int getCostTo(VertexInterface neighbor);
 
+    public List<EdgeInterface> getEdgeList();
+
+    public void addNeighborUndirected(VertexInterface neighbor, int weight);
+
+    void setData(int i);
 }
